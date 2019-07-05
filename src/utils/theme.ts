@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const theme = {
   colors: {
@@ -9,8 +9,17 @@ export const theme = {
     blue: '#035985',
     yellow: '#ffba29',
   },
+  fontFamily: 'Cabin Condensed',
 };
 
+export const Container = styled.div`
+  padding: 1rem;
+`;
+
 export const GlobalStyle = createGlobalStyle`
-  body { background: ${theme.colors.dark}; }
+body {
+    color: ${theme.colors.light};
+    background: ${theme.colors.dark};
+   }
+  a { text-decoration: none;}
 `;

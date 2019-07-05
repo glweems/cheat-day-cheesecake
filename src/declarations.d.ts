@@ -6,4 +6,11 @@
 
 // And to shim assets, use (one file extension per `declare`):
 // declare module '*.png';
-declare module 'typography-theme-funston';
+declare module 'react-social-icons';
+declare module 'styled-container-component';
+declare module '@microlink/react';
+
+interface MenuItem {
+  name: string;
+  flavors: string[];
+}

@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
+import { Container } from 'styled-container-component';
 import { StoreProvider } from '../Store';
 import { theme, GlobalStyle } from '../utils/theme';
 import { Navbar } from './Navbar';

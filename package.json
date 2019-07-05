@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-mega-modern",
+  "name": "cheat-day-cheesecakes",
   "author": "Garrett Weems <gwgraphicdesign@gmail.com> (https://glweems.com)",
   "scripts": {
     "build": "gatsby build",
@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@microlink/react": "^4.0.1",
     "@rhysforyou/gatsby-plugin-react-helmet-async": "^0.1.1",
     "@typescript-eslint/parser": "^1.11.0",
     "babel-plugin-styled-components": "^1.10.6",
@@ -23,8 +24,10 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet-async": "^1.0.2",
+    "react-social-icons": "^4.1.0",
     "react-typography": "^0.16.19",
     "styled-components": "^4.3.2",
+    "styled-container-component": "^3.0.2",
     "typography": "^0.16.19",
     "typography-theme-funston": "^0.16.19"
   },
