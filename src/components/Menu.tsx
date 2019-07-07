@@ -8,11 +8,11 @@ interface MenuProps {
 export const Menu = ({ menuItems }: MenuProps) => (
   <ul>
     {menuItems.map(({ name, flavors }) => (
-      <li>
+      <li key={name}>
         {name}
         <ul>
           {flavors.map(flavor => (
-            <li>{flavor}</li>
+            <li key={flavor}>{flavor}</li>
           ))}
         </ul>
       </li>

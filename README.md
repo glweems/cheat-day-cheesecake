@@ -1,5 +1,7 @@
 # ⚛️ gatsby-starter-ultra-modern
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fd1a806-537a-4b4b-aeb6-0cfd5a0c2901/deploy-status)](https://app.netlify.com/sites/cheat-day-cheesecake/deploys)
+
 A Gatsby starter with typescript, redux boilerplate, styled-components, strict linting and auto-formatting rules.
 
 ## 🚀 Getting started
