@@ -4,7 +4,7 @@ import { Container } from '../utils/theme';
 import Layout from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
 import { Menu } from '../components/Menu';
-import { MapContainer } from '../components/Map';
+import { Map } from '../components/Map';
 
 const menuItems: MenuItem[] = [
   { name: 'Cheese Cake', flavors: ['Lemon Blueberry', 'Chocolate Chip'] },
@@ -25,7 +25,7 @@ export default function IndexPage() {
       <Container>
         <Microlink url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack/" />
       </Container>
-      <MapContainer />
+      <Map />
     </Layout>
   );
 }

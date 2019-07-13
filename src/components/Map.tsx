@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
-import { Map as GoogleMap, GoogleApiWrapper } from 'google-maps-react';
-import axios from 'axios';
+import { Map as GoogleMap, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-const apiUrl =
-  'https://nominatim.openstreetmap.org/search/?street=117%20E.%20Oak%20St.&country=united%20states&city=denton&format=json&state=texas&postalcode=76210';
+import React from 'react';
 
-declare let process: {
-  env: {
-    NODE_ENV: string;
-    GOOGLE_API: string;
-  };
-};
+const coordinents = { lat: 33.3591010977438, lng: -97.1760019783657 };
 
-export const MapContainer = GoogleApiWrapper({
+export const Map = GoogleApiWrapper({
   apiKey: process.env.GOOGLE_API,
-})(({ google }) => {
-  const [loading, setLoading] = useState(true);
-  const [address, setAddress] = useState('');
-  axios.get(apiUrl).then(({ data }) => console.log(data));
-  return (
-    <GoogleMap
-      google={google}
-      zoom={14}
-      initialCenter={{
-        lat: -1.2884,
-        lng: 36.8233,
-      }}
-    />
-  );
-});
+})(({ google }) => (
+  <GoogleMap
+    google={google}
+    zoom={18}
+    style={{
+      width: '90%',
+      height: '90%',
+    }}
+    initialCenter={coordinents}
+  >
+    <Marker position={coordinents} />
+  </GoogleMap>
+));
 
-export default MapContainer;
+export default Map;
