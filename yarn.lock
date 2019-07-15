@@ -1044,19 +1044,6 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/google-maps-react@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@types/google-maps-react/-/google-maps-react-2.0.1.tgz#e4c8a181dd35abedc08fb35cd522e8595d49cc0f"
-  integrity sha512-NGr76/ogkd9emXGIRvIMSRyyNgH/oad/zZmfaw7lOWBg8V9kk0FlUOCrvvPQw7PwF0u/B/Qxd3Bxcs5l/VXvHw==
-  dependencies:
-    "@types/googlemaps" "*"
-    "@types/react" "*"
-
-"@types/googlemaps@*":
-  version "3.37.0"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.37.0.tgz#85596a2b93ded3850ac83ff575b66c34053c0ac8"
-  integrity sha512-kUF1DCVJISf6HZQdgROIs98C0MS40AK5KXxyOju5L1aifNXqMkN5siSGErHYxpEMkDcTA/hu6Dr22fZBTt2qRA==
-
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
@@ -1138,7 +1125,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/styled-components@^4.1.16":
+"@types/styled-components@^4.1.18":
   version "4.1.18"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.18.tgz#348804fe5a399ae0a46550afaf030085815ad931"
   integrity sha512-VrHkgvjbxQXOw0xWSUckusUUZ4y/jqN1u7kF29ngh0oE6uOrlZHleTgqeUqylQqHQIeQ8MxFb50BRHy8ju5DHg==

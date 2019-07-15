@@ -17,14 +17,16 @@ export const Container = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-html {
+  html {
     max-width: 100%;
     overflow: hidden;
-}
-body {
+  }
+  body {
     width: 100%;
     color: ${theme.colors.dark};
     background: ${theme.colors.light};
-   }
-  a { text-decoration: none;}
+  }
+  a {
+    text-decoration: none;
+  }
 `;
