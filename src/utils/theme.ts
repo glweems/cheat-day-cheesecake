@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const theme = {
   colors: {
-    light: '#f2f5f8',
+    light: '#F4EFD7',
     red: '#d83131',
     dark: '#303030',
     grey: '#454545',
@@ -17,9 +17,14 @@ export const Container = styled.div`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+html {
+    max-width: 100%;
+    overflow: hidden;
+}
 body {
-    color: ${theme.colors.light};
-    background: ${theme.colors.dark};
+    width: 100%;
+    color: ${theme.colors.dark};
+    background: ${theme.colors.light};
    }
   a { text-decoration: none;}
 `;

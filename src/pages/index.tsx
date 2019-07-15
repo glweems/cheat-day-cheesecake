@@ -1,31 +1,39 @@
 import React from 'react';
 import Microlink from '@microlink/react';
+import styled from 'styled-components';
 import { Container } from '../utils/theme';
-import Layout from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
 import { Menu } from '../components/Menu';
-import { Map } from '../components/Map';
+import GoogleMap from '../components/Map';
 
 const menuItems: MenuItem[] = [
   { name: 'Cheese Cake', flavors: ['Lemon Blueberry', 'Chocolate Chip'] },
   { name: 'Creme Brulee', flavors: ['Original', 'Coffee', 'Spicy'] },
 ];
 
+const Grid = styled.div`
+  display: grid;
+  /* grid-template-rows: 50vh; */
+  grid-template-columns: 1fr 1fr;
+  /* gap: 1rem; */
+  max-width: 100vw;
+  max-height: 100vh;
+`;
+
 export default function IndexPage() {
   return (
-    <Layout>
-      <Container>
-        <h1>Hello World!</h1>
-        <p>Gatsby is the best!</p>
-        <SocialIcons />
-      </Container>
-      <Container>
-        <Menu menuItems={menuItems} />
-      </Container>
-      <Container>
-        <Microlink url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack/" />
-      </Container>
-      <Map />
-    </Layout>
+    <div>
+      <h1>Hello World!</h1>
+      <GoogleMap
+        mapStyle={{
+          width: '95%',
+          margin: '0 auto',
+          height: '10rem',
+          border: '2px solid black',
+          borderRadius: '10px',
+          position: 'relative',
+        }}
+      />
+    </div>
   );
 }

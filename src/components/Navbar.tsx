@@ -1,32 +1,73 @@
-import React from 'react';
+import React, { useState, JSXElementConstructor, ReactFragment } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import media from 'styled-media-query';
+import { link } from 'fs';
 
-const StyledNavbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  padding: 0.35rem 0.5rem;
-  background: ${({ theme }) => theme.colors.red};
-  .brand {
-    font-weight: bold;
+interface NavLink {
+  text: string;
+  path: string;
+}
+
+const Navbar = styled.nav`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: ${({ columns }: { columns: number }) =>
+    `repeat(${columns + 2}, 1fr)`};
+  button {
+    display: none;
+    /* position: fixed; */
   }
-`;
+  /* SMALL */
+  ${media.lessThan('small')`
+    background: pink;
+    button {
+      display: unset;
 
-const links = [{ title: 'Home', path: '/' }];
+    }
+    a:nth-child(n+2) {
+      display: none;
+    }
+    justify-items: space-between;
+  `}
+  width: 100%;
+  background: ${props => props.theme.colors.light};
+`; // NAVBAR
 
-export const Navbar = () => {
+/* const NavItems: ReactFragment = ({ items }: { items: NavLink[] }) =>
+  items.map(({ text, path }) => (
+    <Link key={text} to={path} className="grid-link">
+      {text}
+    </Link>
+  )) */
+
+export default ({ links }: { links: NavLink[] }) => {
+  const [dropdown, setDropdown] = useState(true);
+
   return (
-    <StyledNavbar>
-      <Link to="/" className="brand">
-        Cheat Day Cheesecake
-      </Link>
-      {links.map(({ title, path }) => (
-        <Link key={title} to={path}>
-          {title}
-        </Link>
-      ))}
-    </StyledNavbar>
+    <>
+      <Navbar columns={links.length}>
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+        <button type="button">click</button>
+        {links.map(({ text, path }) => (
+          <Link key={text} to={path} className="grid-link">
+            {text}
+          </Link>
+        ))}
+      </Navbar>
+      {/* DROPDOWN */}
+    </>
   );
 };
 
-export default Navbar;
+export const NavQuery = graphql`
+  query IndexPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

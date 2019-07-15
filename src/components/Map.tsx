@@ -1,23 +1,38 @@
-import { Map as GoogleMap, GoogleApiWrapper, Marker } from 'google-maps-react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from 'react';
+import Map, { GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { relative } from 'path';
 
-import React from 'react';
+// import '@types/google-maps-react';
 
 const coordinents = { lat: 33.3591010977438, lng: -97.1760019783657 };
 
-export const Map = GoogleApiWrapper({
-  apiKey: process.env.GOOGLE_API,
-})(({ google }) => (
-  <GoogleMap
-    google={google}
-    zoom={18}
-    style={{
-      width: '90%',
-      height: '90%',
-    }}
-    initialCenter={coordinents}
-  >
-    <Marker position={coordinents} />
-  </GoogleMap>
-));
+interface MapProps {
+  google: any;
+}
 
-export default Map;
+export default GoogleApiWrapper({ apiKey: process.env.GOOGLE_API })(props => {
+  const [infoVisable, setInfoVisable] = useState(true);
+  const [activeMarker, setActiveMarker] = useState({
+    selectedPlace: coordinents,
+  });
+  return (
+    <Map
+      draggable={false}
+      xs={12}
+      google={props.google}
+      zoom={15}
+      style={props.mapStyle}
+      initialCenter={coordinents}
+    >
+      <Marker
+        position={coordinents}
+        onClick={(props, marker, e) => console.log(props, marker, e)}
+      >
+        <InfoWindow marker={coordinents} visible={infoVisable}>
+          <div>hello</div>
+        </InfoWindow>
+      </Marker>
+    </Map>
+  );
+});
