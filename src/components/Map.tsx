@@ -26,4 +26,6 @@ function GoogleMap({ google, coorinents, mapStyle }: MapProps) {
   );
 }
 
-export default GoogleApiWrapper({ apiKey: process.env.GOOGLE_API })(GoogleMap);
+export default GoogleApiWrapper({ apiKey: process.env.GATSBY_GOOGLE_API })(
+  GoogleMap,
+);
