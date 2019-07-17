@@ -63,7 +63,7 @@ export default ({ links }: { links: NavLink[] }) => {
 };
 
 export const NavQuery = graphql`
-  query IndexPage {
+  query NavQuery {
     site {
       siteMetadata {
         title

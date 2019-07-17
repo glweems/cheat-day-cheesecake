@@ -12,7 +12,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId }) => {
       id: createNodeId(`cheesecake-event-${event.id}`),
       parent: null,
       internal: {
-        type: 'cheeseCakeEvent',
+        type: 'cheesecakeEvent',
         content: JSON.stringify(event),
         contentDigest: crypto
           .createHash('md5')

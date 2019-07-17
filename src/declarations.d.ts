@@ -21,11 +21,21 @@ interface ThemeProps {
     };
   };
 }
-interface CheeseEvent {
+
+interface Query<Type> {
+  edges: QueryNode<Type>[];
+}
+
+interface QueryNode<Type> {
+  node: Type;
+}
+
+interface CheesecakeEvent {
+  id: number;
   title: string;
   date: string;
+  street: string;
   address: {
-    street: string;
     city: string;
     state: string;
     zip: number;

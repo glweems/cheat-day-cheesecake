@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import GoogleMap from '../components/Map';
+import { graphql } from 'gatsby';
+// import GoogleMap from '../components/Map';
 import { Container } from '../utils/theme';
 import Events from '../components/Events';
 
@@ -18,30 +19,11 @@ const mapStyle = {
   position: 'static',
 };
 
-const events: CheeseEvent[] = [
-  {
-    title: 'Smashing',
-    date: 'now',
-    address: {
-      street: '3616 Clydesdale Dr.',
-      city: 'Deton',
-      state: 'TX',
-      zip: 76210,
-    },
-  },
-  {
-    title: 'Smashing',
-    date: 'now',
-    address: {
-      street: '3616 Clydesdale Dr.',
-      city: 'Deton',
-      state: 'TX',
-      zip: 76210,
-    },
-  },
-];
-
-export default function IndexPage() {
+const IndexPage = ({
+  data,
+}: {
+  data: { allCheesecakeEvent: Query<CheesecakeEvent> };
+}) => {
   return (
     <>
       <Section>
@@ -49,13 +31,38 @@ export default function IndexPage() {
           <h1>Cheat Day Cheesecake</h1>
         </Container>
       </Section>
-      {/* <GoogleMap
-          coorinents={{ lat: 33.3591010977438, lng: -97.1760019783657 }}
-          mapStyle={mapStyle}
-        /> */}
+
       <Section>
-        <Events events={events} />
+        <Events events={data.allCheesecakeEvent.edges} />
       </Section>
     </>
   );
-}
+};
+
+export const IndexQuery = graphql`
+  query EventsQuery {
+    allCheesecakeEvent {
+      edges {
+        node {
+          title
+          date
+          address {
+            city
+            state
+            street
+            zip
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
+
+/*
+<GoogleMap
+  coorinents={{ lat: 33.3591010977438, lng: -97.1760019783657 }}
+  mapStyle={mapStyle}
+/>
+*/
