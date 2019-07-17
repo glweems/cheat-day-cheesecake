@@ -3,8 +3,9 @@ const axios = require('axios');
 const crypto = require('crypto');
 
 exports.sourceNodes = async ({ actions: { createNode }, createNodeId }) => {
-  const apiUrl = `${process.env.GATSBY_API_URL}/events`;
-  const { data: events } = await axios.get(apiUrl);
+  const { data: events } = await axios.get(
+    `${process.env.GATSBY_API_URL}/events`,
+  );
 
   events.forEach(event => {
     createNode({
