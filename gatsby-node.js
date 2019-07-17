@@ -3,7 +3,7 @@ const axios = require('axios');
 const crypto = require('crypto');
 
 exports.sourceNodes = async ({ actions: { createNode }, createNodeId }) => {
-  const apiUrl = `http://localhost:3000/events`;
+  const apiUrl = `${process.env.GATSBY_API_URL}/events`;
   const { data: events } = await axios.get(apiUrl);
 
   events.forEach(event => {
