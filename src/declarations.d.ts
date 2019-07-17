@@ -37,6 +37,7 @@ interface CheesecakeEvent {
   street: string;
   address: {
     city: string;
+    street: string;
     state: string;
     zip: number;
   };

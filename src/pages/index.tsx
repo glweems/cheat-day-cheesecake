@@ -1,15 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-// import GoogleMap from '../components/Map';
+import GoogleMap from '../components/Map';
 import { Container } from '../utils/theme';
 import Events from '../components/Events';
-
-const Section = styled.section`
-  width: 100%;
-  padding: 2rem 0;
-  background: ${props => props.theme.colors.red};
-`;
+import { Section } from '../components/Styled';
 
 const mapStyle = {
   width: '100%',
@@ -25,17 +20,19 @@ const IndexPage = ({
   data: { allCheesecakeEvent: Query<CheesecakeEvent> };
 }) => {
   return (
-    <>
-      <Section>
+    <div>
+      <Section bg="red">
         <Container>
           <h1>Cheat Day Cheesecake</h1>
         </Container>
       </Section>
-
+      {/* <Section>
+        <GoogleMap />
+      </Section> */}
       <Section>
         <Events events={data.allCheesecakeEvent.edges} />
       </Section>
-    </>
+    </div>
   );
 };
 
