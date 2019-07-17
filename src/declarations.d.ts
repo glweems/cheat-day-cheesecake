@@ -14,3 +14,20 @@ interface MenuItem {
   name: string;
   flavors: string[];
 }
+interface ThemeProps {
+  theme: {
+    colors: {
+      color?: string;
+    };
+  };
+}
+interface CheeseEvent {
+  title: string;
+  date: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: number;
+  };
+}

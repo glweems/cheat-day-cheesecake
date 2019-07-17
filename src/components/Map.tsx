@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 interface MapProps {
   google: typeof GoogleApiWrapper;
@@ -14,14 +14,14 @@ interface MapProps {
 function GoogleMap({ google, coorinents, mapStyle }: MapProps) {
   return (
     <Map
-      // xs={12}
-      // draggable={false}
+      xs={12}
+      draggable={false}
       google={google}
       zoom={15}
       style={mapStyle}
       initialCenter={coorinents}
     >
-      <Marker position={coorinents} name="Currento" />
+      <Marker position={coorinents} />
     </Map>
   );
 }
