@@ -7,6 +7,7 @@
 // And to shim assets, use (one file extension per `declare`):
 // declare module '*.png';
 declare module 'react-social-icons';
+declare module 'typography-theme-funston';
 declare module 'styled-container-component';
 declare module '@microlink/react';
 declare module 'google-maps-react';
