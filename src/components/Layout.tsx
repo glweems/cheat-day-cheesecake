@@ -8,17 +8,16 @@ export default ({
 }: {
   children: ReactNode;
   navItems: NavItem[];
-}) => {
-  return (
-    <div id="outer-container">
-      <Sidebar pageWrapId="page-wrap" outerContainerId="outer-container">
-        {navItems.map(({ text, path }: NavItem) => (
+}) => (
+  <div id="outer-container">
+    <Sidebar pageWrapId="page-wrap" outerContainerId="outer-container">
+      {!navItems ||
+        navItems.map(({ text, path }: NavItem) => (
           <Link key={path} to={path}>
             {text}
           </Link>
         ))}
-      </Sidebar>
-      <main id="page-wrap">{children}</main>
-    </div>
-  );
-};
+    </Sidebar>
+    <main id="page-wrap">{children}</main>
+  </div>
+);
