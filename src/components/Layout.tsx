@@ -1,66 +1,24 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { ThemeProvider } from 'styled-components';
-import { StoreProvider } from '../Store';
-import { theme, GlobalStyle } from '../utils/theme';
-import Navbar from './Navbar';
+import React, { ReactNode } from 'react';
+import { bubble as Sidebar } from 'react-burger-menu';
+import { Link } from 'gatsby';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: Props) {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          description
-          languageCode
-          countryCode
-        }
-      }
-    }
-  `);
-
+export default ({
+  children,
+  navItems,
+}: {
+  children: ReactNode;
+  navItems: NavItem[];
+}) => {
   return (
-    <>
-      <GlobalStyle />
-      <StoreProvider>
-        <ThemeProvider theme={theme}>
-          <>
-            <Helmet
-              titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-              defaultTitle={data.site.siteMetadata.title}
-            >
-              <html lang={data.site.siteMetadata.languageCode} />
-              <meta
-                name="description"
-                content={data.site.siteMetadata.description}
-              />
-
-              <meta
-                property="og:locale"
-                content={`${data.site.siteMetadata.languageCode}_${data.site.siteMetadata.countryCode}`}
-              />
-            </Helmet>
-
-            <Navbar
-              links={[
-                { text: `About`, path: `/` },
-                { text: `Tutorials`, path: `/` },
-                { text: `Design`, path: `/` },
-                { text: `Repos`, path: `/` },
-              ]}
-            />
-
-            <main>{children}</main>
-
-            <footer>{/* TODO */}</footer>
-          </>
-        </ThemeProvider>
-      </StoreProvider>
-    </>
+    <div id="outer-container">
+      <Sidebar pageWrapId="page-wrap" outerContainerId="outer-container">
+        {navItems.map(({ text, path }: NavItem) => (
+          <Link key={path} to={path}>
+            {text}
+          </Link>
+        ))}
+      </Sidebar>
+      <main id="page-wrap">{children}</main>
+    </div>
   );
-}
+};

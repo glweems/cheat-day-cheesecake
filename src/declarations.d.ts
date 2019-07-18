@@ -10,6 +10,12 @@ declare module 'react-social-icons';
 declare module 'styled-container-component';
 declare module '@microlink/react';
 declare module 'google-maps-react';
+
+interface NavItem {
+  text: string;
+  path: string;
+}
+
 interface MenuItem {
   name: string;
   flavors: string[];

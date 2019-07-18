@@ -4,9 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Ultra Modern Starter',
-    description:
-      'Demo for a Gatsby starter with strict linting and auto-formatting rules.',
+    title: 'Cheat Day Cheesecake',
+    description: 'Denton, tx local food truck',
     languageCode: 'en',
     countryCode: 'US',
   },
@@ -15,13 +14,13 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         /* eslint-disable @typescript-eslint/camelcase */
-        name: 'Gatsby Strict Starter',
-        short_name: 'starter',
+        name: 'Cheat Day Cheesecake',
+        short_name: 'cheesecake',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#D9534F',
+        theme_color: '#D9534F',
         display: 'minimal-ui',
-        icon: 'src/assets/favicon.png',
+        icon: 'src/assets/cheesecake.png',
         /* eslint-enable */
       },
     },
@@ -37,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/Layout.tsx`),
+        component: require.resolve(`./src/components/WrapRootElement.tsx`),
       },
     },
   ],
