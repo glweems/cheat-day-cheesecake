@@ -9053,11 +9053,6 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
-redux-react-hook@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/redux-react-hook/-/redux-react-hook-3.3.2.tgz#1cdad45009dfa264f46c2a9959d86ce1401df725"
-  integrity sha512-WdKoDA8FF25c9Tzy5iflM0wEbhilNrcXlAMg6OMgoAaH/bF20+A1H8y4c3B7F7oQGRFpAcBmiBiU//ZHd0AfOw==
-
 redux-thunk@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
@@ -10218,18 +10213,6 @@ styled-components@^4.3.2:
     stylis "^3.5.0"
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
-
-styled-config@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/styled-config/-/styled-config-3.0.1.tgz#3afbc3647e2f423a838c297f8c84e379b2b2a7db"
-  integrity sha512-dzXbqRgJPTEbm30T2FYx3JyWCLAXI2B7zoyJcukFLB2WqGZlx640/4TqIq8sgpUlkkLZW5ufeX09i79sREwYFw==
-
-styled-container-component@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/styled-container-component/-/styled-container-component-3.0.2.tgz#e1c5c2f5028902bfb24f0749ac5968b65d103a91"
-  integrity sha512-CUkBB4d38oIZDrpPeJs4OpxDMbjNGf11DpcCFx0ubEDi0zM6Ze9X4YXiStGF9lV1mZoP+rtggcBUT3ho0DJ2Mw==
-  dependencies:
-    styled-config "^3.0.1"
 
 styled-media-query@^2.1.2:
   version "2.1.2"
