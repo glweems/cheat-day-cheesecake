@@ -2,16 +2,54 @@
   "name": "cheat-day-cheesecakes",
   "author": "Garrett Weems <gwgraphicdesign@gmail.com> (https://glweems.com)",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatbsy clean && gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
-    "start": "npm run develop",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
     "lint:es": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
+    "lint:fix": "npm run format && npm run lint",
     "lint:style": "stylelint --ignore-path .gitignore \"src/**/*.{ts,tsx,js}\"",
     "lint": "npm run lint:es && npm run lint:style",
-    "lint:fix": "npm run format && npm run lint",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
     "type-check": "tsc --noEmit"
   },
+  "description": "A Gatsby starter with strict linting and auto-formatting rules.",
+  "version": "1.0.0",
+  "repository": "github:glweems/gatsby-starter-ultra-modern",
+  "keywords": [
+    "gatsby-starter",
+    "gatsby",
+    "redux",
+    "starter",
+    "styled-components",
+    "typescript"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn build"
+    }
+  },
+  "lint-staged": {
+    "*.tsx": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glweems/gatsby-starter-ultra-modern/issues"
+  },
+  "homepage": "https://github.com/glweems/gatsby-starter-ultra-modern#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@microlink/react": "^4.0.1",
@@ -23,7 +61,6 @@
     "@typescript-eslint/parser": "^1.11.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.21",
     "gatsby-cli": "^2.7.14",
@@ -40,7 +77,6 @@
     "gatsby-transformer-sharp": "^2.2.4",
     "google-maps-react": "^2.0.2",
     "node-sass": "^4.12.0",
-    "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
@@ -61,7 +97,6 @@
     "@types/styled-components": "^4.1.18",
     "@types/typography": "^0.16.2",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "commit": "gitmoji -c",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
@@ -70,7 +105,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "gitmoji-cli": "^1.9.3",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.0",
     "prettier": "^1.18.2",
@@ -82,41 +116,5 @@
     "stylelint-order": "^3.0.0",
     "stylelint-processor-styled-components": "^1.8.0",
     "typescript": "^3.5.3"
-  },
-  "description": "A Gatsby starter with strict linting and auto-formatting rules.",
-  "version": "1.0.0",
-  "repository": "github:glweems/gatsby-starter-ultra-modern",
-  "keywords": [
-    "gatsby",
-    "gatsby-starter",
-    "starter",
-    "typescript",
-    "redux",
-    "styled-components"
-  ],
-  "lint-staged": {
-    "*.tsx": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/glweems/gatsby-starter-ultra-modern/issues"
-  },
-  "homepage": "https://github.com/glweems/gatsby-starter-ultra-modern#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn build"
-    }
   }
 }
