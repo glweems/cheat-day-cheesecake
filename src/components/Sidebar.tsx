@@ -16,19 +16,12 @@ const Sidebar = ({ isOpen, navItems }: SidebarProps) => (
     customCrossIcon={false}
     noOverlay
   >
-    <NavItems navItems={navItems} />
-  </AppMenu>
-);
-
-const NavItems = ({ navItems }: SidebarProps) => (
-  <>
     {navItems.map(({ text, path }: NavItem) => (
       <Link key={path} to={path}>
         {text}
       </Link>
     ))}
-    ;
-  </>
+  </AppMenu>
 );
 
 export default Sidebar;
