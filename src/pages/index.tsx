@@ -6,10 +6,10 @@ import TruckImages from '../components/TruckImages';
 import Header from '../components/Header';
 
 const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
-  <div>
+  <div className="index-page">
     <Header />
     <TruckImages edges={allFile.edges} />
-    <Section>
+    <Section style={{ padding: '1rem' }}>
       <Events events={allCheesecakeEvent.edges} />
     </Section>
   </div>
