@@ -112,7 +112,8 @@
   "homepage": "https://github.com/glweems/gatsby-starter-ultra-modern#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn build"
     }
   }
 }
