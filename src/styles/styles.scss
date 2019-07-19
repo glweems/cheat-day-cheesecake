@@ -15,6 +15,11 @@ html {
     background: $bg;
   }
 }
+:focus {
+  outline: 0;
+  /* or */
+  outline: none;
+}
 
 #App {
   height: 100vh;
@@ -24,7 +29,7 @@ html {
   overflow: auto;
 }
 a {
-  color: $red;
+  color: $brand;
   &:hover {
     color: $dark;
   }
@@ -32,7 +37,7 @@ a {
 
 .bm-item {
   :hover {
-    color: $red;
+    color: $brand;
   }
   text-decoration: none;
   transition: color 0.2s;
@@ -43,7 +48,7 @@ a {
   padding: 1em 1.5em 0;
   font-size: 1.15em;
   background: $light;
-  border-right: 2px solid $red;
+  border-right: 2px solid $brand;
 }
 
 .bm-morph-shape {
@@ -59,7 +64,7 @@ a {
 }
 
 .index-page {
-  background: $red;
+  background: $brand;
 }
 
 .navbar {
@@ -92,4 +97,79 @@ a {
     padding: 0.5rem 1rem;
     font-size: 1.75rem;
   }
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+}
+
+@mixin button-reset {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  @include button-reset;
+  padding: 4px 6px;
+}
+
+.btn {
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* create a small space when buttons wrap on 2 lines */
+  margin: 2px 0;
+
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* size comes from text & padding (no width/height) */
+  padding: 0.5em 1em;
+
+  /* make sure colors have enough contrast! */
+  color: $dark;
+  background: $bg;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* inverse colors on mouse-over */
+.btn:hover {
+  color: $light;
+  border-color: currentColor;
+  background-color: $dark;
+}
+
+/* inverse colors on mouse-over and focus */
+// .btn:hover,
+// .btn:focus {
+//   color: $brand;
+//   border-color: currentColor;
+//   background-color: white;
+// }
+
+.btn {
+  outline: none;
+}
+
+/* Firefox: removes the inner border shown on focus */
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
 }
