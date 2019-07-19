@@ -7,6 +7,7 @@
 // And to shim assets, use (one file extension per `declare`):
 // declare module '*.png';
 declare module 'react-social-icons';
+declare module 'react-parallax';
 declare module 'typography-theme-funston';
 declare module 'styled-container-component';
 declare module '@microlink/react';
@@ -29,23 +30,60 @@ interface ThemeProps {
   };
 }
 
-interface Query<Type> {
-  edges: QueryNode<Type>[];
+interface Address {
+  city: string;
+  state: string;
+  street: string;
+  zip: number;
 }
 
-interface QueryNode<Type> {
+interface CheesecakeNode {
+  id: string;
+  title: string;
+  date: string;
+  address: Address;
+}
+
+interface AllCheesecakeEvent {
+  edges: Edge<Node>[];
+}
+
+interface RootObject {
+  allCheesecakeEvent: AllCheesecakeEvent;
+}
+
+interface Fluid {
+  src: string;
+}
+
+interface ChildImageSharp {
+  fluid: [];
+}
+
+interface Node {
+  childImageSharp: ChildImageSharp;
+}
+
+interface Edge<Type> {
   node: Type;
 }
 
-interface CheesecakeEvent {
-  id: number;
-  title: string;
-  date: string;
-  street: string;
-  address: {
-    city: string;
-    street: string;
-    state: string;
-    zip: number;
+interface AllFile<Type> {
+  edges: Edge<Type>;
+}
+
+interface Query<Type> {
+  node: Type;
+  edges: {
+    node: Type;
   };
+}
+
+interface Data {
+  allFile: AllFile;
+  allCheesecakeEvent: AllCheesecakeEvent;
+}
+
+interface RootObject {
+  data: Data;
 }

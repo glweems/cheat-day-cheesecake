@@ -10,6 +10,11 @@ module.exports = {
     countryCode: 'US',
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    '@rhysforyou/gatsby-plugin-react-helmet-async',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -24,9 +29,13 @@ module.exports = {
         /* eslint-enable */
       },
     },
-    '@rhysforyou/gatsby-plugin-react-helmet-async',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-typescript',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
