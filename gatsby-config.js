@@ -10,6 +10,7 @@ module.exports = {
     countryCode: 'US',
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     '@rhysforyou/gatsby-plugin-react-helmet-async',
