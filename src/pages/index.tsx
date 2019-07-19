@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container } from '../utils/theme';
 import Events from '../components/Events';
 import { Section } from '../components/Styled';
 import TruckImages from '../components/TruckImages';
@@ -9,11 +8,6 @@ import Header from '../components/Header';
 const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
   <div>
     <Header />
-    <Section>
-      <Container>
-        <h1>Cheat Day Cheesecake</h1>
-      </Container>
-    </Section>
     <TruckImages edges={allFile.edges} />
     <Section>
       <Events events={allCheesecakeEvent.edges} />
@@ -23,7 +17,7 @@ const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
 
 export const IndexQuery = graphql`
   query EventsQuery {
-    # CHEESECAKE EVENTS
+    # CheeseCake Events
     allCheesecakeEvent {
       edges {
         node {
@@ -39,7 +33,7 @@ export const IndexQuery = graphql`
         }
       }
     }
-    # TRUCK IMAGES
+    # Main Truck Image
     file(name: { regex: "/truck-main/" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
@@ -48,6 +42,7 @@ export const IndexQuery = graphql`
         }
       }
     }
+    # All Truck Images
     allFile(filter: { absolutePath: { regex: "/images/" } }) {
       edges {
         node {

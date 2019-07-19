@@ -12,12 +12,17 @@ const Layout = ({
   navItems: NavItem[];
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <LayoutContext.Provider isOpen={[isOpen, setIsOpen]}>
-      <Navbar isOpen={[isOpen, setIsOpen]} />
-      <Sidebar isOpen={[isOpen, setIsOpen]} navItems={navItems} />
+      <Sidebar isOpen={isOpen} navItems={navItems} />
       <div id="outer-container">
-        <main id="page-wrap">{children}</main>
+        <main id="page-wrap">
+          <Navbar toggleMenu={toggleMenu} />
+
+          {children}
+        </main>
       </div>
     </LayoutContext.Provider>
   );
