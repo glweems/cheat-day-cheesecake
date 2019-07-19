@@ -1,23 +1,26 @@
-import React, { ReactNode } from 'react';
-import { bubble as Sidebar } from 'react-burger-menu';
-import { Link } from 'gatsby';
+import React, { createContext, useState } from 'react';
+import Sidebar from './Sidebar';
+import Navbar from './Navbar';
 
-export default ({
+const LayoutContext = createContext();
+
+const Layout = ({
   children,
   navItems,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   navItems: NavItem[];
-}) => (
-  <div id="outer-container">
-    <Sidebar pageWrapId="page-wrap" outerContainerId="outer-container">
-      {!navItems ||
-        navItems.map(({ text, path }: NavItem) => (
-          <Link key={path} to={path}>
-            {text}
-          </Link>
-        ))}
-    </Sidebar>
-    <main id="page-wrap">{children}</main>
-  </div>
-);
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <LayoutContext.Provider isOpen={[isOpen, setIsOpen]}>
+      <Navbar isOpen={[isOpen, setIsOpen]} />
+      <Sidebar isOpen={[isOpen, setIsOpen]} navItems={navItems} />
+      <div id="outer-container">
+        <main id="page-wrap">{children}</main>
+      </div>
+    </LayoutContext.Provider>
+  );
+};
+
+export default Layout;
