@@ -8,6 +8,7 @@ const Navbar = ({ toggleMenu }: { toggleMenu: any }) => (
     </button>
 
     <h3>Cheat Day Cheesecake</h3>
+
     <div>Find me</div>
   </Flex>
 );

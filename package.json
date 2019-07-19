@@ -8,7 +8,7 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
     "lint:es": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
     "lint:fix": "npm run format && npm run lint",
-    "lint:style": "stylelint --ignore-path .gitignore \"src/**/*.{ts,tsx,js}\"",
+    "lint:style": "stylelint --ignore-path .gitignore \"src/**/*.scss\"",
     "lint": "npm run lint:es && npm run lint:style",
     "serve": "gatsby serve",
     "start": "npm run develop",
@@ -41,6 +41,10 @@
       "git add"
     ],
     "*.css": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.scss": [
       "stylelint --fix",
       "git add"
     ]
@@ -115,6 +119,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^3.0.0",
     "stylelint-processor-styled-components": "^1.8.0",
+    "stylelint-scss": "^3.9.2",
     "typescript": "^3.5.3"
   }
 }
