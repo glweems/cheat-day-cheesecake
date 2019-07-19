@@ -1,5 +1,5 @@
 import Typography from 'typography';
-import funstonTheme from 'typography-theme-funston';
+import funstonTheme from 'typography-theme-kirkham';
 
 const typography = new Typography(funstonTheme);
 

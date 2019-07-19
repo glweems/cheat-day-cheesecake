@@ -8,7 +8,7 @@
 // declare module '*.png';
 declare module 'react-social-icons';
 declare module 'react-parallax';
-declare module 'typography-theme-funston';
+declare module 'typography-theme-kirkham';
 declare module 'styled-container-component';
 declare module '@microlink/react';
 declare module 'google-maps-react';

@@ -88,7 +88,7 @@
     "styled-media-query": "^2.1.2",
     "ts-graphql": "^6.0.0",
     "typography": "^0.16.19",
-    "typography-theme-funston": "^0.16.19"
+    "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
     "@divyenduz/ts-graphql-plugin": "^0.1.0",
