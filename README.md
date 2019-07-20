@@ -1,6 +1,7 @@
-# ⚛️ gatsby-starter-ultra-modern
+# [Cheat Day Cheesecake](https://cheesecake.glweems.com) &middot; [![Netlify Status](https://api.netlify.com/api/v1/badges/8fd1a806-537a-4b4b-aeb6-0cfd5a0c2901/deploy-status)](https://app.netlify.com/sites/cheat-day-cheesecake/deploys) [![Build Status](https://travis-ci.org/glweems/cheat-day-cheesecake.svg?branch=master)](https://travis-ci.org/glweems/cheat-day-cheesecake) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/glweems/StrapDown.js/blob/master/LICENSE) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/83036189be1841dbbd7057e5c72393c9)](https://www.codacy.com/app/glweems/cheat-day-cheesecake?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=glweems/cheat-day-cheesecake&amp;utm_campaign=Badge_Grade) ![Typescript Badge](https://img.shields.io/npm/types/typescript.svg)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8fd1a806-537a-4b4b-aeb6-0cfd5a0c2901/deploy-status)](https://app.netlify.com/sites/cheat-day-cheesecake/deploys)
+
+## Website for Denton, TX Food Truck Company
 
 A Gatsby starter with typescript, redux boilerplate, styled-components, strict linting and auto-formatting rules.
 
