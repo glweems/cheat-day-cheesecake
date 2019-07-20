@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 interface MenuProps {
   menuItems: MenuItem[];
 }
 
-export const Menu = ({ menuItems }: MenuProps) => (
+const CurrentMenu = ({ menuItems }: MenuProps) => (
   <ul>
     {menuItems.map(({ name, flavors }) => (
       <li key={name}>
@@ -20,4 +19,4 @@ export const Menu = ({ menuItems }: MenuProps) => (
   </ul>
 );
 
-export default Menu;
+export default CurrentMenu;

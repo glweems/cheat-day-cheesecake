@@ -1,3 +1,4 @@
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
 // colors
 $brand: #d9534f;
 $light: #f8f9fa;
@@ -15,6 +16,15 @@ html {
     background: $bg;
   }
 }
+
+section {
+  padding: 0.5rem 0;
+}
+
+.bg-red {
+  background: $red;
+}
+
 :focus {
   outline: 0;
   /* or */
@@ -63,11 +73,8 @@ a {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.index-page {
-  background: $brand;
-}
-
 .navbar {
+  text-align: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -97,6 +104,12 @@ a {
     padding: 0.5rem 1rem;
     font-size: 1.75rem;
   }
+}
+
+.microlink {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
 }
 
 button {

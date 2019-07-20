@@ -12,18 +12,6 @@ interface ThemeProps {
   };
 }
 
-interface SectionProps {
-  theme?: ThemeProps;
-  bg?: ThemeProps['colors'][string];
-}
-
-export const Section = styled.section`
-  width: 100%;
-  padding: 2rem 0;
-  background: ${(props: SectionProps) =>
-    props.bg ? props.theme.colors[props.bg] : 'inherit'};
-`;
-
 interface FlexProps extends ThemeProps {
   column?: boolean;
   alignItems?: string;

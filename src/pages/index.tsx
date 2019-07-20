@@ -1,18 +1,37 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Microlink from '@microlink/react';
 import Events from '../components/Events';
-import { Section } from '../components/Styled';
-import TruckImages from '../components/TruckImages';
 import Header from '../components/Header';
+import CurrentMenu from '../components/CurrentMenu';
+
+const menuItems: MenuItem[] = [
+  { name: 'Cheese Cake', flavors: ['Lemon Blueberry', 'Chocolate Chip'] },
+  { name: 'Creme Brulee', flavors: ['Original', 'Coffee', 'Spicy'] },
+];
 
 const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
-  <div className="index-page">
+  <>
     <Header />
-    <TruckImages edges={allFile.edges} />
-    <Section style={{ padding: '1rem' }}>
+    <section className="container-fluid bg-red">
+      <div className="container">
+        <h2>Current Menu</h2>
+        <CurrentMenu menuItems={menuItems} />
+      </div>
+    </section>
+    <section className="container">
+      <h2>Upcomming Events</h2>
       <Events events={allCheesecakeEvent.edges} />
-    </Section>
-  </div>
+    </section>
+    <section className="container">
+      <Microlink
+        className="microlink"
+        url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack"
+        size="large"
+        style={{ margin: 'auto' }}
+      />
+    </section>
+  </>
 );
 
 export const IndexQuery = graphql`
