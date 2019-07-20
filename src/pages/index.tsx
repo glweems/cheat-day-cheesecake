@@ -4,6 +4,7 @@ import Microlink from '@microlink/react';
 import Events from '../components/Events';
 import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
+import { microlink } from '../styles/components.module.scss';
 
 const menuItems: MenuItem[] = [
   { name: 'Cheese Cake', flavors: ['Lemon Blueberry', 'Chocolate Chip'] },
@@ -11,7 +12,7 @@ const menuItems: MenuItem[] = [
 ];
 
 const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
-  <div>
+  <>
     <div>
       <TruckImageBanner fluid={file.childImageSharp.fluid} />
     </div>
@@ -27,13 +28,13 @@ const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
     </section>
     <section className="container">
       <Microlink
-        className="microlink"
+        className={microlink}
         url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack"
         size="large"
         style={{ margin: 'auto' }}
       />
     </section>
-  </div>
+  </>
 );
 
 export const IndexQuery = graphql`

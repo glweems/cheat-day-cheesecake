@@ -1,0 +1,65 @@
+@import "variables";
+@import "buttons";
+
+html {
+  background: $light;
+  body {
+    margin: 0;
+    background: $bg;
+  }
+}
+
+section {
+  padding: 0.5rem 0;
+}
+
+.bg-red {
+  background: $brand;
+}
+
+:focus {
+  outline: 0;
+  /* or */
+  outline: none;
+}
+
+#App {
+  height: 100vh;
+}
+
+#page-wrap {
+  overflow: auto;
+}
+a {
+  color: $brand;
+  &:hover {
+    color: $dark;
+  }
+}
+
+.bm-item {
+  :hover {
+    color: $brand;
+  }
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-menu {
+  padding: 1em 1.5em 0;
+  font-size: 1.15em;
+  background: $light;
+  border-right: 2px solid $brand;
+}
+
+.bm-morph-shape {
+  fill: $light;
+}
+
+.bm-item-list {
+  color: $dark;
+}
+
+.bm-overlay {
+  background: $dark;
+}
