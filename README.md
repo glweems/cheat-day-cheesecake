@@ -1,5 +1,6 @@
 # ⚛️ gatsby-starter-ultra-modern
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1cc9192736814b9b862a21162df03b20)](https://app.codacy.com/app/glweems/cheat-day-cheesecake?utm_source=github.com&utm_medium=referral&utm_content=glweems/cheat-day-cheesecake&utm_campaign=Badge_Grade_Dashboard)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8fd1a806-537a-4b4b-aeb6-0cfd5a0c2901/deploy-status)](https://app.netlify.com/sites/cheat-day-cheesecake/deploys)
 
 A Gatsby starter with typescript, redux boilerplate, styled-components, strict linting and auto-formatting rules.
