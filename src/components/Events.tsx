@@ -1,28 +1,19 @@
 import React from 'react';
-import { Flex, Grid, GridItem } from './Styled';
+import styles from '../styles/components.module.scss';
 
 const Events = ({ events }: any) => (
-  <Grid className="event-grid" rows="1fr" columns="1fr" gap=".25rem">
-    {events.map((event: any) => (
-      <Event key={event.node.title} values={event.node} />
+  <div className={styles.events}>
+    {events.map(({ node: { title, date, address } }: any) => (
+      <div className={styles.event}>
+        <div className={styles.info}>
+          <h4 className={styles.title}>{title}</h4>
+          <small>{`${address.city} ${address.street}`}</small>
+        </div>
+
+        <div className={styles.date}>{date}</div>
+      </div>
     ))}
-  </Grid>
-);
-
-const Event = ({ values: { title, date, address } }: any) => (
-  <Grid className="event-item" columns="3fr auto" rows="auto">
-    <GridItem className="info">
-      <h5 className="title">{title}</h5>
-      <Flex alignItems="flex-end">
-        <span>{address.city}</span>
-        <span>{address.street}</span>
-      </Flex>
-    </GridItem>
-
-    <GridItem textAlign="center" className="date">
-      {date}
-    </GridItem>
-  </Grid>
+  </div>
 );
 
 export default Events;
