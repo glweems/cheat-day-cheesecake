@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Microlink from '@microlink/react';
 import Events from '../components/Events';
-import Header from '../components/Header';
+import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
 
 const menuItems: MenuItem[] = [
@@ -10,9 +10,11 @@ const menuItems: MenuItem[] = [
   { name: 'Creme Brulee', flavors: ['Original', 'Coffee', 'Spicy'] },
 ];
 
-const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
-  <>
-    <Header />
+const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
+  <div>
+    <div>
+      <TruckImageBanner fluid={file.childImageSharp.fluid} />
+    </div>
     <section className="container-fluid bg-red">
       <div className="container">
         <h2>Current Menu</h2>
@@ -31,7 +33,7 @@ const IndexPage = ({ data: { allFile, allCheesecakeEvent } }: RootObject) => (
         style={{ margin: 'auto' }}
       />
     </section>
-  </>
+  </div>
 );
 
 export const IndexQuery = graphql`
@@ -54,10 +56,21 @@ export const IndexQuery = graphql`
     }
     # Main Truck Image
     file(name: { regex: "/truck-main/" }) {
+      id
       childImageSharp {
-        fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid
+        fluid(jpegProgressive: true) {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          originalImg
+          originalName
           presentationWidth
+          presentationHeight
         }
       }
     }

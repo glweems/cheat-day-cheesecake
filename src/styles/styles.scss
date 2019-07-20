@@ -54,7 +54,7 @@ a {
 }
 
 .bm-menu {
-  z-index: 10000;
+  // z-index: 10000;
   padding: 1em 1.5em 0;
   font-size: 1.15em;
   background: $light;
@@ -73,8 +73,16 @@ a {
   background: rgba(0, 0, 0, 0.3);
 }
 
+.parallax {
+  // z-index: -1;
+}
+
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
+  // position: sticky;
   top: 0;
   left: 0;
   width: 100%;
