@@ -16,8 +16,8 @@ const MenuItem = ({ item, flavors }: CheesecakeMenu) => (
   <div className={styles.menuItem}>
     <h4>{item}</h4>
     <div>
-      {flavors.map(({ id, flavor, color }: CheesecakeFlavor) => (
-        <Flavor key={id} flavor={flavor} color={color} />
+      {flavors.map(({ flavor, color }: CheesecakeFlavor) => (
+        <Flavor key={flavor} flavor={flavor} color={color} />
       ))}
     </div>
   </div>
