@@ -6,12 +6,9 @@ import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
 import { microlink } from '../styles/components.module.scss';
 
-const menuItems: MenuItem[] = [
-  { name: 'Cheese Cake', flavors: ['Lemon Blueberry', 'Chocolate Chip'] },
-  { name: 'Creme Brulee', flavors: ['Original', 'Coffee', 'Spicy'] },
-];
-
-const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
+const IndexPage = ({
+  data: { allCheesecakeMenu, allCheesecakeEvent, file },
+}: IndexPageProps) => (
   <>
     <div>
       <TruckImageBanner fluid={file.childImageSharp.fluid} />
@@ -19,7 +16,7 @@ const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
     <section className="container-fluid bg-red">
       <div className="container">
         <h2>Current Menu</h2>
-        <CurrentMenu menuItems={menuItems} />
+        <CurrentMenu menuItems={allCheesecakeMenu.edges} />
       </div>
     </section>
     <section className="container">
@@ -39,6 +36,19 @@ const IndexPage = ({ data: { file, allCheesecakeEvent } }: RootObject) => (
 
 export const IndexQuery = graphql`
   query EventsQuery {
+    # Cheesecake Menu
+    allCheesecakeMenu {
+      edges {
+        node {
+          id
+          item
+          flavors {
+            color
+            flavor
+          }
+        }
+      }
+    }
     # CheeseCake Events
     allCheesecakeEvent {
       edges {
@@ -72,19 +82,6 @@ export const IndexQuery = graphql`
           originalName
           presentationWidth
           presentationHeight
-        }
-      }
-    }
-    # All Truck Images
-    allFile(filter: { absolutePath: { regex: "/images/" } }) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 500, quality: 100) {
-              ...GatsbyImageSharpFluid
-              presentationWidth
-            }
-          }
         }
       }
     }
