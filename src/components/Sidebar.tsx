@@ -22,7 +22,9 @@ const Sidebar = ({ isOpen, navItems }: SidebarProps) => (
         {text}
       </Link>
     ))}
-    <SocialMediaIcons size="2rem" marginRight="2.5rem" />
+    <div style={{ display: 'flex' }}>
+      <SocialMediaIcons noText />
+    </div>
   </AppMenu>
 );
 

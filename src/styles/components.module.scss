@@ -1,5 +1,22 @@
 @import "variables";
 
+.footer {
+  width: 100%;
+  background: $dark;
+  color: $light;
+  padding: 1em;
+  .copyright {
+    text-align: center !important;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+  i {
+    fill: $light !important;
+  }
+}
+
 .menuItem {
   .flavor {
     display: flex;

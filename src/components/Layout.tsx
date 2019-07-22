@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const LayoutContext = createContext();
 
@@ -24,6 +25,7 @@ const Layout = ({
 
           {children}
         </main>
+        <Footer />
       </div>
     </LayoutContext.Provider>
   );
