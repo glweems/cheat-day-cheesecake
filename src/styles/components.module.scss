@@ -2,18 +2,29 @@
 
 .footer {
   width: 100%;
-  background: $dark;
   color: $light;
-  padding: 1em;
+  .content {
+    background: $dark;
+    padding: 1em 0;
+    a {
+      font-size: 0.875em;
+      letter-spacing: 1px;
+    }
+    * {
+      font-size: 1em;
+      text-transform: lowercase;
+      color: $light !important;
+      fill: $light !important;
+    }
+  }
+
   .copyright {
-    text-align: center !important;
-  }
-  ul {
-    list-style-type: none;
-    margin: 0;
-  }
-  i {
-    fill: $light !important;
+    width: 100%;
+    text-align: center;
+    color: lighten($dark, 20%);
+    background: $light;
+    padding: 0.3em 0;
+    font-weight: normal;
   }
 }
 

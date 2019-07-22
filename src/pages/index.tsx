@@ -69,7 +69,7 @@ export const IndexQuery = graphql`
     file(name: { regex: "/truck-main/" }) {
       id
       childImageSharp {
-        fluid(jpegProgressive: true) {
+        fluid(jpegProgressive: true, fit: COVER, trim: 1.5) {
           base64
           tracedSVG
           aspectRatio
@@ -85,6 +85,7 @@ export const IndexQuery = graphql`
         }
       }
     }
+    # End
   }
 `;
 export default IndexPage;
