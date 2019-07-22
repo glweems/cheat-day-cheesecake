@@ -1,61 +1,59 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import {
-  faFacebook,
-  faInstagram,
-  faYelp,
-} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import data from '../utils/data';
 
-interface SocialMediaIconProps {
-  size: string;
-  marginRight?: string;
+interface LinkData {
+  name: string;
+  link: string;
+  Icon: IconDefinition;
 }
 
-export const FacebookIcon: React.ReactNode = ({
-  size,
+interface SocialMediaIconsProps extends LinkData {
+  fontSize?: string;
+  marginRight?: string;
+  items?: LinkData[];
+  noIcon?: boolean;
+  noText?: boolean;
+}
+
+const SocialMediaIcon: any = ({
+  name,
+  link,
+  Icon,
+  fontSize,
   marginRight,
-}: SocialMediaIconProps) => (
-  <a
-    href="https://facebook.com/cheatdaycheesecakes"
-    target="_blank_"
-    style={{ fontSize: size, marginRight }}
-  >
-    <FontAwesomeIcon icon={faFacebook} />
-  </a>
+  noText,
+  noIcon,
+}: SocialMediaIconsProps) => (
+  <div style={{ fontSize, marginRight }}>
+    <a href={link} target="_blank_">
+      {noIcon ? null : (
+        <FontAwesomeIcon icon={Icon} style={{ marginRight: '0.75em' }} />
+      )}
+      {noText ? null : name}
+    </a>
+  </div>
 );
 
-export const InstramIcom: React.ReactNode = ({
-  size,
-  marginRight,
-}: SocialMediaIconProps) => (
-  <a
-    href="https://instagram.com/cheatdaycheesecake"
-    target="_blank_"
-    style={{ fontSize: size, marginRight }}
-  >
-    <FontAwesomeIcon icon={faInstagram} />
-  </a>
-);
-
-export const YelpIcon: React.ReactNode = ({
-  size,
-  marginRight,
-}: SocialMediaIconProps) => (
-  <a
-    href=" https://m.yelp.com/biz/cheat-day-cheescakes-denton"
-    target="_blank_"
-    style={{ fontSize: size, marginRight }}
-  >
-    <FontAwesomeIcon icon={faYelp} />
-  </a>
-);
-
-const icons: any = [FacebookIcon, InstramIcom, YelpIcon];
-
-const SocialMediaIcons: React.ReactNode = ({
-  size = '1.75rem',
-  marginRight,
-}: SocialMediaIconProps) =>
-  icons.map((Icon: any) => <Icon size={size} marginRight={marginRight} />);
+const SocialMediaIcons: any = ({
+  fontSize = '1em',
+  marginRight = '0.5em',
+  items = data,
+  noText,
+  noIcon,
+}: SocialMediaIconsProps) =>
+  items.map((item: LinkData) => (
+    <SocialMediaIcon
+      key={item.name}
+      {...item}
+      noIcon={noIcon}
+      noText={noText}
+      fontSize={fontSize}
+      marginRight={marginRight}
+    />
+  ));
 
 export default SocialMediaIcons;
