@@ -1,5 +1,22 @@
 @import "variables";
 
+.menuItem {
+  .flavor {
+    display: flex;
+    align-items: center;
+
+    :first-child {
+      margin-right: 0.25em;
+    }
+
+    .swatch {
+      border-radius: 0.25em;
+      padding: 0.35em;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,6 +27,7 @@
   width: 100%;
   padding: 1rem;
   background: white;
+
   * {
     margin: 0;
   }
@@ -28,6 +46,7 @@
   gap: 0.25rem;
   // align-content: flex-end;
   align-items: center;
+
   .event {
     padding: 0.5rem;
     display: grid;
@@ -39,11 +58,13 @@
     background: $light;
     border-radius: 5px;
   }
+
   .title {
     margin-bottom: 0.125rem !important;
     padding: 0;
     // font-size: 1.5rem;
   }
+
   .date {
     padding: 0.5rem 1rem;
     font-size: 1.75rem;
@@ -58,11 +79,12 @@
 
 .eventItemdate {
   margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.75rem;
+
   &:first-child {
     margin-right: 1rem;
   }
-  padding: 0.5rem 1rem;
-  font-size: 1.75rem;
 }
 
 .eventItemInfo {

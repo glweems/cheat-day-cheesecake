@@ -1,17 +1,25 @@
 import React from 'react';
 import styles from '../styles/components.module.scss';
 
-const Events = ({ events }: any) => (
-  <div className={styles.events}>
-    {events.map(({ node: { title, date, address } }: any) => (
-      <div className={styles.event}>
-        <div className={styles.info}>
-          <h4 className={styles.title}>{title}</h4>
-          <small>{`${address.city} ${address.street}`}</small>
-        </div>
+interface EventsProps {
+  events: QueryNode<CheesecakeEvent>[];
+}
 
-        <div className={styles.date}>{date}</div>
-      </div>
+const Event = ({ title, date, address }: CheesecakeEvent) => (
+  <div className={styles.event}>
+    <div className={styles.info}>
+      <h4 className={styles.title}>{title}</h4>
+      <small>{`${address.city} ${address.street}`}</small>
+    </div>
+
+    <div className={styles.date}>{date}</div>
+  </div>
+);
+
+const Events = ({ events }: EventsProps) => (
+  <div className={styles.events}>
+    {events.map(({ node }) => (
+      <Event key={node.id} {...node} />
     ))}
   </div>
 );

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // This file is used to hold ambient type declarations, as well as type shims
 // for npm module without type declarations, and assets files.
 
@@ -19,10 +20,6 @@ interface NavItem {
   path: string;
 }
 
-interface MenuItem {
-  name: string;
-  flavors: string[];
-}
 interface ThemeProps {
   theme: {
     colors: {
@@ -31,60 +28,49 @@ interface ThemeProps {
   };
 }
 
-interface Address {
+interface QueryNode<Type> {
+  node: Type;
+}
+
+interface Edges<Type> {
+  edges: QueryNode<Type>[];
+}
+
+interface CheesecakeEventAddress {
   city: string;
   state: string;
   street: string;
   zip: number;
 }
 
-interface CheesecakeNode {
-  id: string;
+interface CheesecakeEvent {
+  id?: number;
   title: string;
   date: string;
-  address: Address;
+  address: CheesecakeEventAddress;
 }
 
-interface AllCheesecakeEvent {
-  edges: Edge<Node>[];
+interface CheesecakeFlavor {
+  id?: string;
+  flavor: string;
+  color?: string;
 }
 
-interface RootObject {
-  allCheesecakeEvent: AllCheesecakeEvent;
+interface CheesecakeMenu {
+  id?: number;
+  item: string;
+  flavors: [];
 }
 
-interface Fluid {
-  src: string;
-}
-
-interface ChildImageSharp {
-  fluid: [];
-}
-
-interface Node {
-  childImageSharp: ChildImageSharp;
-}
-
-interface Edge<Type> {
-  node: Type;
-}
-
-interface AllFile<Type> {
-  edges: Edge<Type>;
-}
-
-interface Query<Type> {
-  node: Type;
-  edges: {
-    node: Type;
+interface IndexPageProps {
+  data: {
+    allCheesecakeEvent: Edges<CheesecakeEvent>;
+    allCheesecakeMenu: Edges<CheesecakeMenu>;
+    file: {
+      id: string;
+      childImageSharp: {
+        fluid: any;
+      };
+    };
   };
-}
-
-interface Data {
-  allFile: AllFile;
-  allCheesecakeEvent: AllCheesecakeEvent;
-}
-
-interface RootObject {
-  data: Data;
 }
