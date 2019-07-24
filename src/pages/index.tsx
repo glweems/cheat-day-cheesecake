@@ -1,25 +1,24 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import Microlink from '@microlink/react';
 import Events from '../components/Events';
 import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
 import FacebookPhotos from '../components/FacebookPhotos';
 import { useIndexPageData } from '../utils/query';
-
-const microlink =
-  'https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack';
+import Hours from '../components/Hours';
 
 const IndexPage = () => {
-  const { allCheesecakeEvent, allCheesecakeMenu, file } = useIndexPageData();
+  const { allCheesecakeMenu, allCheesecakeEvent, file } = useIndexPageData();
 
   return (
-    <div>
+    <>
       <div>
         <TruckImageBanner fluid={file.childImageSharp.fluid} />
       </div>
-
-      <section className="container-fluid">
+      <section>
+        <Hours />
+      </section>
+      <section className="container-fluid bg-red">
         <div className="container padded">
           <h2>Current Menu</h2>
           <CurrentMenu menuItems={allCheesecakeMenu.edges} />
@@ -32,13 +31,17 @@ const IndexPage = () => {
       </section>
 
       <section>
-        <FacebookPhotos length={5} />
+        <FacebookPhotos />
       </section>
 
-      <section className="container">
-        <Microlink url={microlink} />
+      <section className="container padded">
+        <Microlink
+          url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack"
+          size="large"
+          style={{ margin: 'auto' }}
+        />
       </section>
-    </div>
+    </>
   );
 };
 

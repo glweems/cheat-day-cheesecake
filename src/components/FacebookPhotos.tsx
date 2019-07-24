@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import { useFacebookPhotos } from '../utils/query';
 import styles from '../styles/components/gallery.module.scss';
@@ -8,18 +6,14 @@ interface FacebookPhotosProps {
   length?: number | undefined;
 }
 
-const FacebookPhotos = ({ length = undefined }: FacebookPhotosProps) => {
-  const images = useFacebookPhotos(length);
-
+const FacebookPhotos = ({
+  length = undefined,
+  images = [],
+}: FacebookPhotosProps) => {
   return (
-    <div className={styles.miniGallery}>
+    <div className={styles.gallery}>
       {images.map(({ src, caption }: GalleryItem) => (
-        <img
-          key={caption}
-          src={src}
-          alt={caption}
-          className={styles.galleryItem}
-        />
+        <img src={src} alt={caption} className={styles.img} />
       ))}
     </div>
   );
