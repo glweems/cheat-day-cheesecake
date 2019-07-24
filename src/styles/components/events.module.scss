@@ -1,11 +1,24 @@
 @import "../_variables";
+@import "../mixins";
 
 .events {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto;
   gap: 0.25rem;
   align-items: center;
+
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @include breakpoint(md) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(4, auto);
+  }
 }
 
 .event {
