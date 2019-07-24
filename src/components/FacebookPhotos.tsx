@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import { useFacebookPhotos } from '../utils/query';
-import styles from '../styles/components.module.scss';
+import styles from '../styles/components/gallery.module.scss';
 
 const shorterArr = (len: number, arr: any[]) => {
   const newarray = arr;

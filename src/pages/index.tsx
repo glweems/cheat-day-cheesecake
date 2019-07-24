@@ -4,18 +4,20 @@ import Microlink from '@microlink/react';
 import Events from '../components/Events';
 import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
-import { microlink } from '../styles/components.module.scss';
 import FacebookPhotos from '../components/FacebookPhotos';
+
+const microlink =
+  'https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack';
 
 const IndexPage = ({
   data: { allCheesecakeMenu, allCheesecakeEvent, file },
 }: IndexPageProps) => (
-  <>
+  <div>
     <div>
       <TruckImageBanner fluid={file.childImageSharp.fluid} />
     </div>
 
-    <section className="container-fluid bg-red">
+    <section className="container-fluid">
       <div className="container padded">
         <h2>Current Menu</h2>
         <CurrentMenu menuItems={allCheesecakeMenu.edges} />
@@ -31,15 +33,10 @@ const IndexPage = ({
       <FacebookPhotos />
     </section>
 
-    <section className="container padded">
-      <Microlink
-        className={microlink}
-        url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack"
-        size="large"
-        style={{ margin: 'auto' }}
-      />
+    <section className="container">
+      <Microlink url={microlink} />
     </section>
-  </>
+  </div>
 );
 
 export const IndexQuery = graphql`

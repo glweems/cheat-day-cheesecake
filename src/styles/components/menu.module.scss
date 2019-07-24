@@ -1,0 +1,30 @@
+@import "../_variables";
+@import "../_mixins";
+
+.menu {
+  display: grid;
+  gap: 1em;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+.item {
+  .flavor {
+    display: flex;
+    align-items: center;
+
+    :first-child {
+      margin-right: 0.25em;
+    }
+
+    .swatch {
+      border-radius: 0.25em;
+      padding: 0.35em;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components.module.scss';
+import styles from '../styles/components/menu.module.scss';
 
 interface CurrentMenuProps {
   menuItems: QueryNode<CheesecakeMenu>[];
@@ -13,8 +13,8 @@ const Flavor = ({ flavor, color }: CheesecakeFlavor) => (
 );
 
 const MenuItem = ({ item, flavors }: CheesecakeMenu) => (
-  <div className={styles.menuItem}>
-    <h4>{item}</h4>
+  <div className={styles.item}>
+    <h3>{item}</h3>
     <div>
       {flavors.map(({ flavor, color }: CheesecakeFlavor) => (
         <Flavor key={flavor} flavor={flavor} color={color} />
@@ -24,7 +24,7 @@ const MenuItem = ({ item, flavors }: CheesecakeMenu) => (
 );
 
 const CurrentMenu = ({ menuItems }: CurrentMenuProps) => (
-  <div>
+  <div className={styles.menu}>
     {menuItems.map(({ node: { item, flavors } }) => (
       <MenuItem key={item} item={item} flavors={flavors} />
     ))}
