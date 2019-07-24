@@ -4,41 +4,13 @@ import React from 'react';
 import { useFacebookPhotos } from '../utils/query';
 import styles from '../styles/components/gallery.module.scss';
 
-const shorterArr = (len: number, arr: any[]) => {
-  const newarray = arr;
-  newarray.length -= newarray.length - len;
-  return newarray;
-};
-
-interface GalleryItem {
-  src?: string;
-  thumbnail?: string;
-  thumbnailWidth?: number;
-  thumbnailHeight?: number;
-  isSelected?: boolean;
-  caption?: string;
+interface FacebookPhotosProps {
+  length?: number | undefined;
 }
 
-const createGalleryData = (array: any[]) => {
-  const formatted: GalleryItem[] = array.map(({ name, webp_images }) => {
-    const { source: src, height, width } = webp_images[0];
+const FacebookPhotos = ({ length = undefined }: FacebookPhotosProps) => {
+  const images = useFacebookPhotos(length);
 
-    const galleryItem: GalleryItem = {
-      src,
-      thumbnail: src,
-      thumbnailHeight: height,
-      thumbnailWidth: width,
-      isSelected: false,
-      caption: name,
-    };
-
-    return galleryItem;
-  });
-  return formatted;
-};
-
-const FacebookPhotos = () => {
-  const images = shorterArr(5, createGalleryData(useFacebookPhotos()));
   return (
     <div className={styles.miniGallery}>
       {images.map(({ src, caption }: GalleryItem) => (

@@ -59,6 +59,15 @@ interface CheesecakeMenu {
   flavors: [];
 }
 
+interface GalleryItem {
+  src?: string;
+  thumbnail?: string;
+  thumbnailWidth?: number;
+  thumbnailHeight?: number;
+  isSelected?: boolean;
+  caption?: string;
+}
+
 interface IndexPageProps {
   data: {
     allCheesecakeEvent: Edges<CheesecakeEvent>;
