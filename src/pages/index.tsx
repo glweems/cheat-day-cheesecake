@@ -5,6 +5,7 @@ import Events from '../components/Events';
 import TruckImageBanner from '../components/TruckImageBanner';
 import CurrentMenu from '../components/CurrentMenu';
 import { microlink } from '../styles/components.module.scss';
+import FacebookPhotos from '../components/FacebookPhotos';
 
 const IndexPage = ({
   data: { allCheesecakeMenu, allCheesecakeEvent, file },
@@ -13,17 +14,24 @@ const IndexPage = ({
     <div>
       <TruckImageBanner fluid={file.childImageSharp.fluid} />
     </div>
+
     <section className="container-fluid bg-red">
-      <div className="container">
+      <div className="container padded">
         <h2>Current Menu</h2>
         <CurrentMenu menuItems={allCheesecakeMenu.edges} />
       </div>
     </section>
-    <section className="container">
+
+    <section className="container padded">
       <h2>Upcomming Events</h2>
       <Events events={allCheesecakeEvent.edges} />
     </section>
-    <section className="container">
+
+    <section>
+      <FacebookPhotos />
+    </section>
+
+    <section className="container padded">
       <Microlink
         className={microlink}
         url="https://www.ntdaily.com/cheat-day-cheesecakes-makes-it-easy-to-enjoy-a-sneaky-late-night-snack"

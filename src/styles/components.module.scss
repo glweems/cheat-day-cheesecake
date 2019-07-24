@@ -1,5 +1,30 @@
 @import "variables";
 
+.miniGallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 15em;
+  background: $light;
+  border: 1px solid darken($light, 2%);
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -webkit-overflow-scrolling: touch;
+  .galleryItem {
+    padding: 1em;
+    img {
+      height: 100%;
+    }
+  }
+}
+
 .mapFooter {
   position: fixed;
   bottom: 0;

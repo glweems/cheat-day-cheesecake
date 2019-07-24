@@ -1,16 +1,17 @@
 @import "variables";
 @import "buttons";
-
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
 html {
   background: $light;
+
   body {
     margin: 0;
     background: $bg;
   }
 }
 
-section {
-  padding: 3em 0;
+.padded {
+  padding: 2em 0;
 }
 
 .bg-red {

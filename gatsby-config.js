@@ -31,6 +31,7 @@ module.exports = {
             'photos{webp_images}',
             'rating_count',
             'place_type',
+            'albums{photos{album,name,webp_images}}',
           ],
         },
         accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
