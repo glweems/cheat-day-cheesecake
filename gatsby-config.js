@@ -10,6 +10,33 @@ module.exports = {
     countryCode: 'US',
   },
   plugins: [
+    {
+      resolve: `gatsby-source-facebook-graphql`,
+      options: {
+        pageId: 1690402924350633,
+        params: {
+          fields: [
+            'about',
+            'bio',
+            'category',
+            'category_list',
+            'company_overview',
+            'features',
+            'hours',
+            'phone',
+            'location',
+            'username',
+            'description',
+            'products',
+            'photos{webp_images}',
+            'rating_count',
+            'place_type',
+            'albums{photos{album,name,webp_images}}',
+          ],
+        },
+        accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+      },
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -30,6 +57,7 @@ module.exports = {
         /* eslint-enable */
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,5 +77,32 @@ module.exports = {
         component: require.resolve(`./src/components/WrapRootElement.tsx`),
       },
     },
+
+    // {
+    //   resolve: `gatsby-source-facebook`,
+    //   options: {
+    //     places: [1690402924350633], // Can be either a numeric ID or the URL ID
+    //     params: {
+    //       fields: 'about', // See Facebooks API to see what you can query for
+    //     },
+    //     key: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN, // You will need to create a Facebook application and go through review in order to get an API token.
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'GitHub',
+    //     fieldName: 'github',
+    //     // Url to query from
+    //     url: 'https://graph.facebook.com/v3.3/1690402924350633',
+    //     // HTTP headers
+    //     headers: {
+    //       // Learn about environment variables: https://gatsby.dev/env-vars
+    //       Authorization: `bearer ${process.env.GATSBY_FACEBOOK_GRAPH_API}`,
+    //     },
+    //     // Additional options to pass to node-fetch
+    //     fetchOptions: {},
+    //   },
+    // },
   ],
 };

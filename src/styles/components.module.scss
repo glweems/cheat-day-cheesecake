@@ -1,19 +1,90 @@
 @import "variables";
 
-.footer {
-  width: 100%;
-  background: $dark;
-  color: $light;
-  padding: 1em;
-  .copyright {
-    text-align: center !important;
+.miniGallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 15em;
+  background: $light;
+  border: 1px solid darken($light, 2%);
+  * {
+    margin: 0;
+    padding: 0;
   }
-  ul {
-    list-style-type: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -webkit-overflow-scrolling: touch;
+  .galleryItem {
+    padding: 1em;
+    img {
+      height: 100%;
+    }
+  }
+}
+
+.mapFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: $dark;
+  background: $light;
+  padding: 0.75em 2em;
+  width: 100%;
+  display: grid;
+  border-radius: 0.5em 0.5em 0 0;
+  border: 2px solid darken($light, 10%);
+  grid-template-columns: 1fr auto;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin-bottom: 0.25em;
+    text-decoration: underline;
+  }
+  address {
+    color: lighten($dark, 20%);
+    font-size: 0.75em;
+    font-style: normal;
     margin: 0;
   }
-  i {
-    fill: $light !important;
+}
+
+.mapClose {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 1000;
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  color: $light;
+  .content {
+    background: $dark;
+    padding: 1em 0;
+    a {
+      font-size: 0.875em;
+      letter-spacing: 1px;
+    }
+    * {
+      font-size: 1em;
+      text-transform: lowercase;
+      color: $light !important;
+      fill: $light !important;
+    }
+  }
+
+  .copyright {
+    width: 100%;
+    text-align: center;
+    color: lighten($dark, 20%);
+    background: $light;
+    padding: 0.3em 0;
+    font-weight: normal;
   }
 }
 

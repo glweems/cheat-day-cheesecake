@@ -9,6 +9,8 @@
 // declare module '*.png';
 declare module '*.scss';
 declare module 'styled-container-component';
+declare module '@microlink/react';
+declare module 'google-maps-react';
 
 interface NavItem {
   text: string;
