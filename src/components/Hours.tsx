@@ -11,12 +11,12 @@ interface HourObj {
 }
 
 const Hours = () => (
-  <ul>
+  <ul className={styles.hours}>
     {useCompanyHours().map(({ id, day, hours }: HourObj) =>
       hours ? (
         <li key={id} className={styles.hour}>
-          <h4>{day}</h4>
-          <small>{hours}</small>
+          <h3>{day}</h3>
+          <p>{hours}</p>
         </li>
       ) : null,
     )}

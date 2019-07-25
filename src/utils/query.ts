@@ -141,7 +141,7 @@ export const useMenuQuery = () => {
 };
 
 // ! INDEX PAGE QUERY
-export const useIndexPageData = () => {
+/* export const useIndexPageData = () => {
   const data = useStaticQuery(graphql`
     query IndexPageData {
       # Cheesecake Menu
@@ -196,9 +196,8 @@ export const useIndexPageData = () => {
       # End
     }
   `);
-
   return data;
-};
+}; */
 
 // ! FACEBOOK PHOTOS FEED
 

@@ -22,12 +22,12 @@ const Layout = ({
     <LayoutContext.Provider isOpen={[isOpen, setIsOpen]}>
       <Sidebar isOpen={isOpen} navItems={navItems} />
       {!isMapOpen ? (
-        <div id="outer-container">
-          <main id="page-wrap">
+        <div id="outer-container" className={isOpen ? 'noScroll' : ''}>
+          <div id="page-wrap">
             <Navbar toggleMenu={toggleMenu} toggleMap={toggleMap} />
-            {children}
-          </main>
-          <Footer />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
       ) : (
         <GoogleMap toggleMap={toggleMap} />

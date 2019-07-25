@@ -11,6 +11,7 @@ declare module '*.scss';
 declare module 'styled-container-component';
 declare module '@microlink/react';
 declare module 'google-maps-react';
+declare module 'react-reveal';
 
 interface NavItem {
   text: string;
