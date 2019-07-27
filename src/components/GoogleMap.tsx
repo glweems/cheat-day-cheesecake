@@ -7,7 +7,8 @@ import {
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from '../styles/components.module.scss';
+import styles from '../styles/components/map.module.scss';
+
 import Button from './Button';
 
 declare let process: {
@@ -49,7 +50,7 @@ const GoogleMap = ({ toggleMap }: { toggleMap: React.FocusEventHandler }) => {
   const key = process.env.GATSBY_GOOGLE_API;
   return (
     <div style={{ height: '100vh', width: '100%' }}>
-      <Button className={styles.mapClose} onClick={toggleMap}>
+      <Button className={styles.close} onClick={toggleMap}>
         <FontAwesomeIcon icon={faWindowClose} size="2x" />
       </Button>
       <GoogleMapReact
@@ -57,10 +58,11 @@ const GoogleMap = ({ toggleMap }: { toggleMap: React.FocusEventHandler }) => {
         defaultCenter={location}
         defaultZoom={16}
         options={{ disableDefaultUI: true }}
+        style={{ height: '100vh' }}
       >
         <Marker {...location} link={link} />
       </GoogleMapReact>
-      <footer className={styles.mapFooter}>
+      <footer className={styles.footer}>
         <div>
           <p>Cheat Day Cheesecakes</p>
           <address>

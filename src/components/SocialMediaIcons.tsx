@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
@@ -9,6 +7,21 @@ interface LinkData {
   name: string;
   link: string;
   Icon: IconDefinition;
+  size?:
+    | '1x'
+    | 'xs'
+    | 'lg'
+    | 'sm'
+    | '2x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x'
+    | undefined;
 }
 
 interface SocialMediaIconsProps extends LinkData {
@@ -17,9 +30,24 @@ interface SocialMediaIconsProps extends LinkData {
   items?: LinkData[];
   noIcon?: boolean;
   noText?: boolean;
+  size?:
+    | '1x'
+    | 'xs'
+    | 'lg'
+    | 'sm'
+    | '2x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x'
+    | undefined;
 }
 
-const SocialMediaIcon: any = ({
+const SocialMediaIcon = ({
   name,
   link,
   Icon,
@@ -27,11 +55,16 @@ const SocialMediaIcon: any = ({
   marginRight,
   noText,
   noIcon,
+  size,
 }: SocialMediaIconsProps) => (
   <div style={{ fontSize, marginRight }}>
     <a href={link} target="_blank_">
       {noIcon ? null : (
-        <FontAwesomeIcon icon={Icon} style={{ marginRight: '0.75em' }} />
+        <FontAwesomeIcon
+          icon={Icon}
+          style={{ marginRight: '0.75em' }}
+          size={size}
+        />
       )}
       {noText ? null : name}
     </a>
@@ -44,11 +77,13 @@ const SocialMediaIcons: any = ({
   items = data,
   noText,
   noIcon,
+  size,
 }: SocialMediaIconsProps) =>
   items.map((item: LinkData) => (
     <SocialMediaIcon
       key={item.name}
       {...item}
+      size={size}
       noIcon={noIcon}
       noText={noText}
       fontSize={fontSize}

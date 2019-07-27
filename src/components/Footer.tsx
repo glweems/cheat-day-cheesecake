@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialMedia from './SocialMediaIcons';
-import styles from '../styles/components.module.scss';
+import styles from '../styles/components/footer.module.scss';
 
 const Footer = () => {
   return (

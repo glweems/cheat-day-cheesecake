@@ -1,6 +1,6 @@
 @import "variables";
 @import "buttons";
-@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+
 html {
   background: $light;
 
@@ -8,6 +8,24 @@ html {
     margin: 0;
     background: $bg;
   }
+}
+
+section {
+  height: 80vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex {
+  display: flex;
+}
+
+.noScroll {
+  overflow: hidden;
+  max-height: 100vh;
+  color: pink !important;
 }
 
 .padded {

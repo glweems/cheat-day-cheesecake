@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components.module.scss';
+import styles from '../styles/components/events.module.scss';
 
 interface EventsProps {
   events: QueryNode<CheesecakeEvent>[];

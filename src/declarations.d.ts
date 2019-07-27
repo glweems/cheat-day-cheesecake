@@ -11,11 +11,7 @@ declare module '*.scss';
 declare module 'styled-container-component';
 declare module '@microlink/react';
 declare module 'google-maps-react';
-
-interface NavItem {
-  text: string;
-  path: string;
-}
+declare module 'react-reveal';
 
 interface ThemeProps {
   theme: {
@@ -57,6 +53,15 @@ interface CheesecakeMenu {
   id?: number;
   item: string;
   flavors: [];
+}
+
+interface GalleryItem {
+  src?: string;
+  thumbnail?: string;
+  thumbnailWidth?: number;
+  thumbnailHeight?: number;
+  isSelected?: boolean;
+  caption?: string;
 }
 
 interface IndexPageProps {
