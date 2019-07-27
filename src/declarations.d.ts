@@ -13,11 +13,6 @@ declare module '@microlink/react';
 declare module 'google-maps-react';
 declare module 'react-reveal';
 
-interface NavItem {
-  text: string;
-  path: string;
-}
-
 interface ThemeProps {
   theme: {
     colors: {

@@ -258,7 +258,6 @@ export const useFacebookPhotos = (length?: number | undefined) => {
               photos {
                 data {
                   name
-
                   webp_images {
                     source
                     height
@@ -295,7 +294,7 @@ export const useFacebookPhotos = (length?: number | undefined) => {
     });
     return formatted;
   };
-  const { data } = facebook.albums.data[0].photos;
+  // const { data } = facebook.albums.data[0].photos;
   const arrayLength = !length ? data : shorterArr(length, data);
 
   return createGalleryData(arrayLength);
